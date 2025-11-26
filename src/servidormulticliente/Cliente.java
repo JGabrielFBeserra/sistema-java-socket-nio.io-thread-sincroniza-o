@@ -64,6 +64,8 @@ public class Cliente {
             System.out.print(entrada.nextLine());
         }
         saida.println(teclado.nextLine());
+        
+        
 
         teclado.close();
         saida.close();

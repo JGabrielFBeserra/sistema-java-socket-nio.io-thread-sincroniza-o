@@ -10,15 +10,15 @@ package servidormulticliente;
  */
 public class Pessoa {
     private String nome;
-    private String email;
+    private String endereco;
     private String cpf;
     private String idade;
     private String altura;
     private String nascimento;
 
-    public Pessoa(String nome, String email, String cpf, String idade, String altura, String nascimento) {
+    public Pessoa(String nome, String endereco, String cpf, String idade, String altura, String nascimento) {
         this.nome = nome;
-        this.email = email;
+        this.endereco = endereco;
         this.cpf = cpf;
         this.idade = idade;
         this.altura = altura;
@@ -29,8 +29,8 @@ public class Pessoa {
         return nome;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEndereco() {
+        return endereco;
     }
 
     public String getCpf() {
@@ -48,5 +48,9 @@ public class Pessoa {
     public String getNascimento() {
         return nascimento;
     }
+    
+    
+
+  
     
 }
