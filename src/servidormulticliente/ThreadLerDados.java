@@ -61,6 +61,7 @@ public class ThreadLerDados extends Thread {
             
             Pessoa pessoa = new Pessoa(nome, endereco, cpf, idade, altura, nascimento);
         
+          
             
             ThreadEscreverDados tec = new ThreadEscreverDados(pessoa);
             tec.start();
