@@ -24,10 +24,18 @@ public class Cliente {
     public static void main(String[] args) throws UnknownHostException, IOException {
         Socket cliente = new Socket("127.0.0.1", 12345);
 
+      
         Scanner entrada = new Scanner(cliente.getInputStream());
         PrintStream saida = new PrintStream(cliente.getOutputStream());
         Scanner teclado = new Scanner(System.in);
+        int opcao = 0;
+        
+        System.out.println("Você deseja cadastrar uma pessoa na base ou listar as pessoas? [1] Cadastrar [2] Listar");
+        opcao = teclado.nextInt();
+        saida.println(opcao);
+        
 
+        System.out.println(entrada.hasNextLine());
                 //Nome, 
         if (entrada.hasNextLine()) {
             System.out.print(entrada.nextLine());
