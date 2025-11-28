@@ -63,4 +63,11 @@ public class Pessoa {
 
     }
 
+    @Override
+    public String toString() {
+        return "Pessoa{" + "nome=" + nome + ", endereco=" + endereco + ", cpf=" + cpf + ", idade=" + idade + ", altura=" + altura + ", nascimento=" + nascimento + '}';
+    }
+    
+    
+
 }

@@ -25,13 +25,15 @@ public class ServidorMultiCliente {
             PrintStream saida = new PrintStream(cliente.getOutputStream());
             
             if (entrada.hasNextLine()) {
-                String mensagem = entrada.nextLine();  // aqui sim você pega o que o cliente mandou
-                
+                String mensagem = entrada.nextLine();
+                System.out.println("Resposta recebida: " + mensagem);
                 if (mensagem.equals("1")) {
+                    System.out.println("Startando ThreadLerDados" );
                     ThreadLerDados tcn = new ThreadLerDados(cliente);
                     tcn.start();
                 } else if (mensagem.equals("2")) {
-                    saida.println("QUER LISTAR NÉ");
+                    ThreadListarDados tld = new ThreadListarDados(cliente);
+                    tld.start();
                 } else {
                     saida.println("Opção inválida!");
                 }

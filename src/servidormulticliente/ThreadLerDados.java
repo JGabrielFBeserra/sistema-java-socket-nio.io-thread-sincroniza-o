@@ -26,11 +26,14 @@ public class ThreadLerDados extends Thread {
             Scanner entrada = new Scanner(cliente.getInputStream());
             PrintStream saida = new PrintStream(cliente.getOutputStream());
             Scanner teclado = new Scanner(System.in);
-
+            
             String nome = "", endereco = "", cpf = "", nascimento = "";
             int idade = 0;
             float altura = 0;
+            
+            
 
+            
             saida.println("Informe o Nome da pessoa: ");
             if (entrada.hasNextLine()) {
                 nome = entrada.nextLine();

@@ -19,7 +19,7 @@ public class Leitor {
 
     public static ArrayList<Pessoa> ler() throws FileNotFoundException, IOException {
 
-        String arqLeitura = "dados.csv";
+        String arqLeitura = "relatorio_pessoas.csv";
         ArrayList<Pessoa> bd = new ArrayList<Pessoa>();
         String nome = "", endereco = "", cpf = "", nascimento = "";
         int idade = 0;

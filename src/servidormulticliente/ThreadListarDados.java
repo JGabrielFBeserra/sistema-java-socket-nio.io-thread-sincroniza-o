@@ -5,34 +5,44 @@
 package servidormulticliente;
 
 import java.io.IOException;
+import java.io.PrintStream;
+import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author cg3034593
  */
 public class ThreadListarDados extends Thread {
-    
-    
+
+    Socket cliente;
+
+    public ThreadListarDados(Socket cliente) {
+        this.cliente = cliente;
+    }
 
     public synchronized void run() {
         try {
-            Path arquivo = Paths.get("relatorio_pessoas.txt");
-            if (Files.exists(arquivo)) {
-                System.out.println("O arquivo já existe. Nenhuma ação será realizada.");
+            Scanner entrada = new Scanner(cliente.getInputStream());
+            PrintStream saida = new PrintStream(cliente.getOutputStream());
+            Scanner teclado = new Scanner(System.in);
 
-            } else {
-                Files.createFile(arquivo);
-            }
-            
+
             Leitor leitor = new Leitor();
-            
-            leitor.ler();
+
+            ArrayList<Pessoa> bd = leitor.ler();
+
+            for (Pessoa pessoa : bd) {
+                saida.println(pessoa.toString());
+
+            }
 
         } catch (IOException e) {
-            System.err.println("Erro ao criar diretórios ou arquivo: " + e.getMessage());
+            System.err.println("Erro ao listar dados do arquivo: " + e.getMessage());
         }
     }
 }
